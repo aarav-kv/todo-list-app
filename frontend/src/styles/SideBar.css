@@ -1,0 +1,115 @@
+.side-bar {
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 115px 150px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    height: calc(100vh - 20px);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .side-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        height: 100dvh;
+        transform: translateX(-100%);
+        margin: 0;
+        border-radius: 0px 15px 15px 0px;
+        max-width: 70%;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .side-bar.open {
+        transform: translateX(0);
+    }
+}
+
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 17px;
+    left: 0px;
+    z-index: 1100;
+    padding: 8px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hamburger i {
+    font-size: 20px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+}
+
+.side-bar li {
+    list-style-type: none;
+}
+
+.page-title {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .page-title {
+        font-weight: 600;
+        font-size: 1.7rem;
+        margin-left: 30px;
+        margin-bottom: 0px;
+        margin-top: 5px;
+        font-style: normal;
+    }
+}
+
+.side-bar .option {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin: 3px 0;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.side-bar i {
+    color: rgb(21, 21, 21);
+    width: 30px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.side-bar span {
+    color: rgb(34, 34, 34);
+    font-weight: 500;
+    font-size: .8rem;
+}
+
+.side-bar .option:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.active {
+    background-color: rgb(218, 218, 218);
+}

@@ -1,0 +1,24 @@
+*{
+   box-sizing: border-box;
+   -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+}
+
+body{
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right bottom, #e2d6ff, #d8d4e4, #ece6ff, #f1edff, #ececec, #efefef, #faf6ff, #fbf7ff, #e8e5e9, #faeaff, #fbe2ff, #fddbff); 
+}
+
+
+.app-layout{
+  display: flex;
+  flex-direction: row;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+}

@@ -1,0 +1,81 @@
+
+  .actionContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .deleteButton, .makeCompletedButton{
+    border-radius: 100px;
+    padding: 9px 14px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.143);
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    position: absolute;
+    top: 0;
+    padding-top: 10px;
+    z-index: 11;
+    width: calc(100% - 100px);
+  }
+
+  .greet-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .greet-message {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  
+  .greet-subtext {
+    color: gray;
+    font-size: 1rem;
+    margin-top: -8px;
+    margin-bottom: 20px;
+  }
+  
+  .greetIcon{
+    width: 40px;
+    height: 40px;
+}
+  
+  @media (max-width: 768px) {
+    .searchIcon{
+      position: relative;
+      top: -20px;
+      right: -5px;
+    }
+
+    .greet-message {
+      font-size: 1.0rem;
+    }
+  
+    .nav-container {
+       padding-left: 50px;
+       width: calc(100%);
+       backdrop-filter: blur(10px); 
+       background: rgba(255, 255, 255, 0.3); 
+       padding-top: 10px;
+       
+      }
+
+    .greet-subtext {
+      font-size: 0.9rem;
+    }
+
+    .greetIcon{
+        width: 30px;
+        height: 30px;
+    }
+  }
+  
