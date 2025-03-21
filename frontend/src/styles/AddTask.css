@@ -59,16 +59,19 @@
 
   
 
-.taskcard {
-    background-color: white;
+  .taskcard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 5px 0;
-    padding: 10px;
     border-radius: 7px;
     background: hsl(0, 0%, 100%);
-    box-shadow: rgba(137, 137, 137, 0.15) 4px 1px 11px 0px;
+    box-shadow: rgb(137 137 137 / 15%) 4px 1px 11px 0px;
     opacity: 0;
     transform: translateY(-150px);
     animation: fadeInUp 0.3s ease-out forwards;
+    height: 50px;
+    padding: 0 10px;
   }
   
   /* Animation for fade in and slide up */
@@ -82,42 +85,113 @@
 
   /* checkbox */
   /* Hide default checkbox */
-.modern-checkbox {
-    margin-top: 5px;
+  .checkbox-wrapper-43{
+
+    height: 30px;
+    width: 20px;
+    display: flex
+  
+  }
+/* custom checkbox */
+.checkbox-wrapper-43 input[type="checkbox"] {
+  display: none;
+  visibility: hidden;
 }
-.modern-checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+
+.checkbox-wrapper-43 label {
+  display: inline-block;
+}
+
+.checkbox-wrapper-43 .check {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-43 .check svg {
+  position: relative;
+  z-index: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #c8ccd4;
+  stroke-width: 1.5;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+  top: -12px;
+}
+.checkbox-wrapper-43 .check svg path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+}
+.checkbox-wrapper-43 .check svg polyline {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+}
+.checkbox-wrapper-43 .check:hover:before {
+  opacity: 1;
+}
+.checkbox-wrapper-43 .check:hover svg {
+  stroke: #4285f4;
+}
+.checkbox-wrapper-43 input[type="checkbox"]:checked + .check svg {
+  stroke: #4285f4;
+}
+.checkbox-wrapper-43 input[type="checkbox"]:checked + .check svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+.checkbox-wrapper-43 input[type="checkbox"]:checked + .check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}
+
+
+.checkbox-wrapper-43 .check {
+  position: relative;
+}
+
+.checkbox-wrapper-43 input[type="checkbox"]:checked + .check::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  border-radius: 50%;
+  -webkit-animation: firework-43 0.6s ease-out forwards;
+          animation: firework-43 0.6s ease-out forwards;
+}
+
+/* Explosion effect using box-shadow */
+@keyframes firework-43 {
+  0% {
+      opacity: 1;
+      box-shadow: 
+          0 0 0 -2px #4285f4,
+          0 0 0 -2px #4285f4,
+          0 0 0 -2px #4285f4,
+          0 0 0 -2px #4285f4,
+          0 0 0 -2px #4285f4,
+          0 0 0 -2px #4285f4;
   }
-  
-  /* Create a custom checkbox */
-  .modern-checkbox .checkmark {
-    height: 15px;
-    width: 15px;
-    background-color: white;
-    border: 1px solid #aeaeae;
-    border-radius: 5px;
-    display: inline-block;
-    transition: all 0.3s ease;
+  30% {
+      opacity: 1;
   }
-  
-  /* On check, show green background */
-  .modern-checkbox input:checked + .checkmark {
-    background-color: #0025b8;
-    position: relative;
+  100% {
+      opacity: 0;
+      box-shadow: 
+          0 -25px 0 0px #4285f4,   /* Up */
+          20px -15px 0 0px #4285f4, /* Up-Right */
+          20px 15px 0 0px #4285f4,  /* Down-Right */
+          0 25px 0 0px #4285f4,   /* Down */
+          -20px 15px 0 0px #4285f4, /* Down-Left */
+          -20px -15px 0 0px #4285f4; /* Up-Left */
   }
-  
-  /* Add checkmark icon */
-  .modern-checkbox input:checked + .checkmark::after {
-    content: "";
-    position: absolute;
-    left: 5px;
-    top: 2px;
-    width: 2px;
-    height: 5px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-  
+}

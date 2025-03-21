@@ -1,0 +1,184 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.editMenu {
+    background-color: white;
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 350px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.edit-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.edit-content {
+    width: 100%;
+    text-align: center;
+}
+
+
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    color: black;
+}
+
+.cancel-btn:hover {
+    background-color: #aaa;
+}
+
+.save-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #0056b3;
+}
+
+/* input feild animation */
+.input-container {
+    margin-top: 30px;
+  width: 100%;
+  position: relative;
+}
+
+.input-field {
+  font: 15px/24px 'Muli', sans-serif;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  border: 1px solid #ccc;
+  padding: 7px 15px;
+  border-radius: 5px;
+  background: transparent;
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.focus-bg:before, .focus-bg:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background-color: #ededed;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.focus-bg:before {
+    border-radius: 5px 0 0 5px;
+}
+
+.focus-bg:after {
+    border-radius: 0px 5px 5px 0;
+}
+.input-field:focus ~ .focus-bg:before {
+  width: 50%;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.focus-bg:after {
+  left: auto;
+  right: 50%;
+  top: auto;
+  bottom: 50%;
+}
+
+.input-field:focus ~ .focus-bg:after {
+  width: 50%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+.input-container label {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  color: #aaa;
+  transition: 0.3s;
+  z-index: -1;
+  pointer-events: none; /* Makes the label non-interactive */
+}
+
+.input-field:focus ~ label, 
+.input-field:not(:placeholder-shown) ~ label {
+  top: -18px;
+  left: 0;
+  font-size: 12px;
+  color: #333;
+}

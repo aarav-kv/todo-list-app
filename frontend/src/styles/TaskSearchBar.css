@@ -10,7 +10,7 @@
         font-size: 1rem;
         pointer-events: none;
         transition: all 0.3s ease;
-        z-index: 11111;
+        position: absolute;
     }
     
     .task-search-bar input {
@@ -47,7 +47,6 @@
         font-size: 1rem;
         pointer-events:all;
         transition: all 0.3s ease;
-        z-index: 11111;
     }
     
     .navbar-search {

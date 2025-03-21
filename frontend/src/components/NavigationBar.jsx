@@ -3,9 +3,9 @@ import eveningIcon from "../assets/evening-icon.svg";
 import nightIcon from "../assets/night-icon.svg";
 import morningIcon from "../assets/morning-icon.svg";
 import "../styles/NavigationBar.css";
-import TaskSearchBar from "./TaskSearchBar.jsx";
+import CustomHamburger from "./CustomHamburger.jsx"
 
-const NavigationBar = ({ deleteTask }) => {
+const NavigationBar = ({ toggleSideBar }) => {
     const [message, setMessage] = useState("");
     const [icon, setIcon] = useState(morningIcon); // default icon
 
@@ -27,16 +27,11 @@ const NavigationBar = ({ deleteTask }) => {
         }
     }, [hours]);
 
-    function handleDeleteTask() {
-        deleteTask();
-    }
 
-    function completeTask() {
-
-    }
 
     return (
         <div className="nav-container">
+            <CustomHamburger toggleSideBar={toggleSideBar} />
             <div className="greetContainer">
                 <div className="greet-header">
                     <img src={icon} className="greetIcon" alt="Greeting Icon" />

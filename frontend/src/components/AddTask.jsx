@@ -11,13 +11,14 @@ const AddTask = ({ addTask, activeMenu, handleTaskDeletion }) => {
         if (taskText.trim()) {
             const newTask = {
                 _id: Date.now(),
-                name: taskText,  // Fixed variable name
+                name: taskText,
+                completed: false,
                 important: activeMenu === "Important",
                 lastModifiedDate: new Date(),
                 syncStatus: "pending",
             };
             addTask(newTask);
-            setTaskText(""); // Fixed incorrect state setter
+            setTaskText("");
         }
     };
 
@@ -31,8 +32,6 @@ const AddTask = ({ addTask, activeMenu, handleTaskDeletion }) => {
     return (
         <>
             <MoreOption toggleSearchBar={() => setIsSearchMode(!isSearchMode)} handleTaskDeletion={handleTaskDeletion} />
-
-            {/* Search Input (Visible when toggled) */}
             {isSearchMode ? (
                 <div className="search-input-container">
                     <input

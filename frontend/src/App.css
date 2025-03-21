@@ -1,8 +1,13 @@
 *{
+  
    box-sizing: border-box;
    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
 }
 
+html,body{
+  height: 100%;
+  overflow: hidden; /* Prevent unwanted scrolling */
+}
 body{
   color: #000000;
   margin: 0;

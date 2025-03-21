@@ -3,9 +3,8 @@ import "../styles/SideBar.css";
 import TaskSearchBar from "./TaskSearchBar";
 import TaskCounter from "./TaskCounter";
 
-const SideBar = ({ count, propName }) => {
+const SideBar = ({ count, propName, toggle }) => {
     const [activeItem, setActiveItem] = useState("Home"); // Default active item
-    const [isOpen, setIsOpen] = useState(false); // Sidebar open/close for mobile
 
     useEffect(() => {
         propName(activeItem);
@@ -13,23 +12,13 @@ const SideBar = ({ count, propName }) => {
 
     const handleActive = (item) => {
         setActiveItem(item);
-        setIsOpen(false); // Close sidebar on selecting an item (optional)
-    };
-
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
     };
 
     return (
         <>
-            {/* Hamburger menu icon */}
-            <div className="hamburger" onClick={toggleSidebar}>
-                <i className="fa-solid fa-bars"></i>
-            </div>
-
             {/* Sidebar */}
-            <ul className={`side-bar ${isOpen ? "open" : ""}`}>
-                <li className="page-title">To-Do</li>
+            <ul className={`side-bar ${toggle ? "open" : ""}`}>
+                <li className="page-title">ToDo</li>
                 <li><TaskSearchBar position={"sidebar"} /></li>
 
                 <li

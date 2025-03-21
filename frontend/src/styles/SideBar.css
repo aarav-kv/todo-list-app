@@ -10,8 +10,7 @@
     margin: 10px;
     height: calc(100vh - 20px);
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
+
 }
 
 @media (max-width: 768px) {
@@ -26,32 +25,13 @@
         border-radius: 0px 15px 15px 0px;
         max-width: 70%;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+        position: fixed; /* Ensure it moves out of the flow */
+        z-index: 20; /* Higher than task-viewer-container */
     }
 
     .side-bar.open {
         transform: translateX(0);
-    }
-}
-
-.hamburger {
-    display: none;
-    position: fixed;
-    top: 17px;
-    left: 0px;
-    z-index: 1100;
-    padding: 8px 8px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.hamburger i {
-    font-size: 20px;
-    color: #333;
-}
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
     }
 }
 
@@ -69,15 +49,12 @@
 }
 
 @media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
     .page-title {
         font-weight: 600;
         font-size: 1.7rem;
-        margin-left: 30px;
-        margin-bottom: 0px;
-        margin-top: 5px;
+        margin-left: 50px;
+        margin-bottom: 10px;
+        margin-top: 8px;
         font-style: normal;
     }
 }

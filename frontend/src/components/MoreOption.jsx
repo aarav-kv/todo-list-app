@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical, faTrash, faCheck, faSearch, faListCheck } from "@fortawesome/free-solid-svg-icons";
 import "../styles/MoreOption.css";
 import isMobileView from "../hooks/isMobileView";
-
 const MoreOption = ({ toggleSearchBar, handleTaskDeletion }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSearchMode, setIsSearchMode] = useState(false); // Track search mode
@@ -28,18 +27,19 @@ const MoreOption = ({ toggleSearchBar, handleTaskDeletion }) => {
 
             {/* Action container, shown when isOpen is true */}
             {isOpen && (
-                <div className="action-container">
+                <div className="action-container ">
                     {isViewMobile && (
-                        <span className="search-icon" onClick={handleSearchToggle}>
+                        <span className={`search-icon ${isOpen ? 'open' : ''}`} onClick={handleSearchToggle}>
                             <FontAwesomeIcon icon={isSearchMode ? faListCheck : faSearch} className="icon" />
                         </span>
                     )}
 
-                    <span className="delete-button" onClick={handleTaskDeletion}>
+
+                    <span className={`delete-button ${isOpen ? 'open' : ''}`} onClick={handleTaskDeletion}>
                         <FontAwesomeIcon icon={faTrash} className="icon" style={{ color: "red" }} />
                     </span>
 
-                    <span className="make-completed-button">
+                    <span className={`make-completed-button ${isOpen ? 'open' : ''}`}>
                         <FontAwesomeIcon icon={faCheck} className="icon" style={{ color: "green" }} />
                     </span>
                 </div>
