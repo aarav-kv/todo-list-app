@@ -18,6 +18,7 @@ mongoose.connect(uri, {
 
 app.get('/tasks', async (req, res) => {
   const tasks = await Task.find();
+  console.log("fetching data")
   res.json(tasks);
 });
 
@@ -40,5 +41,20 @@ app.delete('/tasks', async (req, res) => {
         res.status(500).json({ error: "Error deleting tasks" });
     }
 });
+
+app.put('/task', async (req,res)=>{
+    const taskData = req.body.data;
+    const { _id, taskName, edited } = taskData;
+    console.log(_id)
+    try {
+        const updatedTask = await Task.updateOne({ _id:_id }, { name : taskName },   { new: true }  );
+        console.log(updatedTask)
+        res.json({ success: updatedTask.acknowledged });
+    } catch (error) {
+       res.status(500).json({ success: false });
+        console.error("Error updating task:", error);
+    }
+})
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
  
