@@ -23,7 +23,7 @@ app.get('/tasks', async (req, res) => {
 });
 
 app.post('/tasks', async (req, res) => {
-    console.log(req.body) 
+    console.log("Inserting task....")
     const { _id, name, important, lastModifiedDate, syncStatus } = req.body;
     const taskVal = { _id, name, important, lastModifiedDate, syncStatus};
     const task = new Task({...taskVal, syncStatus: 'synced'});
@@ -34,7 +34,7 @@ app.post('/tasks', async (req, res) => {
 app.delete('/tasks', async (req, res) => {
     try {
         const { checkedTaskIds } = req.body; // Expect an array of IDs
-        console.log(checkedTaskIds);
+        console.log("Deleting task....")
         await Task.deleteMany({ _id: { $in: checkedTaskIds } });
         res.json({ success: true, message: "Tasks deleted successfully" });
     } catch (error) {
@@ -43,13 +43,15 @@ app.delete('/tasks', async (req, res) => {
 });
 
 app.put('/task', async (req,res)=>{
+    console.log("updating task details..")
     const taskData = req.body.data;
     const { _id, taskName, edited } = taskData;
-    console.log(_id)
     try {
         const updatedTask = await Task.updateOne({ _id:_id }, { name : taskName },   { new: true }  );
         console.log(updatedTask)
         res.json({ success: updatedTask.acknowledged });
+        
+    console.log("updating task completed..")
     } catch (error) {
        res.status(500).json({ success: false });
         console.error("Error updating task:", error);
